@@ -1,0 +1,9 @@
+== README
+
+Simple app which is no much more than a Rails scaffold and some badly structured Backbone with Marionette
+
+* Go to comics to list the comics that the app has stored
+
+* You can add comics and edit them later
+
+* You can add authors and see which comics they've authored
