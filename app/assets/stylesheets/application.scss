@@ -15,19 +15,28 @@ a {
 
 .comic-item {
   overflow: hidden;
+  div.image {
+    width: 30%;
+  }
+
   a {
     display: block;
     float: left;
     width: 30%;
   }
 
-  div {
+  div.synopsis {
     float: left;
-    width: 69%;
+    width: 39%;
   }
 }
 
 .thumb {
+  width: 200px;
+  height: auto;
+}
+
+.image img {
   width: 200px;
   height: auto;
 }
