@@ -23,14 +23,14 @@
     <form action="" method="get" accept-charset="utf-8">
       <fieldset>
         <label for="author[name]">Title</label>
-        <input type="text" name="author[name]" id="" value="<%%= author.name %>" />
+        <input type="text" name="author[name]" id="" value="<%%- author.name %>" />
       </fieldset>
     </form>
     <h3>Comics written:</h3>
     <%% _.each(comics, function(comic) { %>
     <li>
-      <a href="/comics/<%%= comic.get('id') %>">
-        <%%= comic.get('title') %>
+      <a href="/comics/<%%- comic.get('id') %>">
+        <%%- comic.get('title') %>
       </a>
     </li>
     <%% }); %>
@@ -41,18 +41,18 @@
     <form action="" method="get" accept-charset="utf-8">
       <fieldset>
         <label for="comic[title]">Title</label>
-        <input type="text" name="comic[title]" id="" value="<%%= comic.title %>" />
+        <input type="text" name="comic[title]" id="" value="<%%- comic.title %>" />
       </fieldset>
       <fieldset>
         <label for="comic[title]">Synopsis</label>
-        <textarea name="comic[synopsis]"><%%= comic.synopsis %></textarea>
+        <textarea name="comic[synopsis]"><%%- comic.synopsis %></textarea>
       </fieldset>
       <fieldset>
         <label for="comic[author_id]">Author</label>
         <select name="comic[author_id]">
           <%% _.each(authors, function(author) { %>
-          <option value="<%%= author.get('id') %>" <%%= author.get('id') === comic.author_id ? "selected" : "" %>>
-            <%%= author.get('name') %>
+          <option value="<%%- author.get('id') %>" <%%- author.get('id') === comic.author_id ? "selected" : "" %>>
+            <%%- author.get('name') %>
           </option>
           <%% }); %>
         </select>
@@ -62,7 +62,7 @@
         <label for="comic[cover]">Image</label>
         <input type="file" name="comic[cover]" id="comic-cover"/>
         <%% if (comic.image_url) { %>
-          <img class="thumb" src="<%%= comic.image_url %>" >
+          <img class="thumb" src="<%%- comic.image_url %>" >
         <%% } %>
       </fieldset>
     </form>
@@ -83,22 +83,22 @@
   </script>
 
   <script id="author-item" type="text/template" charset="utf-8">
-    <a href="/authors/<%%= id %>" class="edit-link title">
-      <%%= name %>
+    <a href="/authors/<%%- id %>" class="edit-link title">
+      <%%- name %>
     </a>
   </script>
 
   <script id="comic-item" type="text/template" charset="utf-8">
     <div class="image">
-      <img class="thumb" src="<%%= image_url %>" >
+      <img class="thumb" src="<%%- image_url %>" >
     </div>
 
-    <a href="/comics/<%%= id %>" class="edit-link title">
-      <%%= title %>
+    <a href="/comics/<%%- id %>" class="edit-link title">
+      <%%- title %>
     </a>
 
     <div class="synopsis">
-      <%%= synopsis %>
+      <%%- synopsis %>
     </div>
   </script>
 
